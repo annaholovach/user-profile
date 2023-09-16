@@ -9,12 +9,8 @@ import { FilesService } from 'src/files/file.service';
 @Injectable()
 export class ProfileService {
     constructor(@InjectModel(User) private userRepository: typeof User,
-                private jwtService: JwtService,
                 private fileService: FilesService) {}
 
-    async getinfo(token: string) {
-
-    }
     
     async updateInfo(user: User, dto: UpdateUserDto) {
         const existingUser = await this.findUserById(user.id)
@@ -28,4 +24,5 @@ export class ProfileService {
         const user = await this.userRepository.findOne({where: {id}})
         return user
     }
+
 }

@@ -8,7 +8,4 @@ export default class UpdateUserDto {
   @IsOptional()
   @IsString()
   lastName?: string;
-
-  @IsString()
-  image: string
 }

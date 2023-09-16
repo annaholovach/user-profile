@@ -1,7 +1,8 @@
-import { Controller, Get, Put, UseGuards, Request, Body } from '@nestjs/common';
+import { Controller, Get, Put, UseGuards, Request, Body, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { ProfileService } from './profile.service';
 import {JwtAuthGuard} from '../guards/jwt-auth.guard'
 import UpdateUserDto from 'src/user/dto/update-user.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('profile')
 export class ProfileController {
@@ -16,7 +17,7 @@ export class ProfileController {
 
     @UseGuards(JwtAuthGuard)
     @Put('/update')
-    updateInfo(@Request() req, @Body() updateUserDto : UpdateUserDto) {
+    updateInfo(@Request() req, @Body() updateUserDto : UpdateUserDto,) {
         return this.profileService.updateInfo(req.user, updateUserDto)
     }
 }

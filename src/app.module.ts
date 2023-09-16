@@ -31,7 +31,7 @@ import * as path from 'path';
     AuthModule,
     UserModule,
     ProfileModule,
-    FilesModule
+    FilesModule,
   ],
   controllers: [],
   providers: [],
